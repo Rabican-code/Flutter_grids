@@ -76,7 +76,10 @@ class LayoutDemo extends StatelessWidget {
             child: GridView.count(
               crossAxisCount: 2,
               children: List.generate(4, (index) {
-                return Card(child: Center(child: Text("Grid $index")));
+                return Card(
+                  color: Colors.blue,
+                  child: Center(child: Text("Grid $index")),
+                );
               }),
             ),
           ),
@@ -144,17 +147,36 @@ class LayoutDemo extends StatelessWidget {
               }),
             ),
           ),
-          sectionTitle("10. GridView with Images"),
+          sectionTitle("10. ListView with ExpansionTiles"),
           SizedBox(
-            height: 200,
-            child: GridView.count(
-              crossAxisCount: 2,
-              children: List.generate(4, (index) {
-                return Image.network(
-                  "https://picsum.photos/200?random=$index",
-                  fit: BoxFit.cover,
-                );
-              }),
+            height: 300,
+            child: ListView(
+              children: [
+                ExpansionTile(
+                  leading: const Icon(Icons.store),
+                  title: const Text("Store 1"),
+                  children: const [
+                    ListTile(title: Text("Address: Jamalpur, Bihar")),
+                    ListTile(title: Text("Products: 120")),
+                  ],
+                ),
+                ExpansionTile(
+                  leading: const Icon(Icons.store),
+                  title: const Text("Store 2"),
+                  children: const [
+                    ListTile(title: Text("Address: Patna, Bihar")),
+                    ListTile(title: Text("Products: 85")),
+                  ],
+                ),
+                ExpansionTile(
+                  leading: const Icon(Icons.store),
+                  title: const Text("Store 3"),
+                  children: const [
+                    ListTile(title: Text("Address: Ranchi, Jharkhand")),
+                    ListTile(title: Text("Products: 60")),
+                  ],
+                ),
+              ],
             ),
           ),
         ],
